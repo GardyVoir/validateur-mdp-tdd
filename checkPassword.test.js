@@ -27,3 +27,15 @@ it("should display number error if don't contain a number", () => {
     "Le mot de passe doit contenir au moins 1 chiffre"
   );
 });
+
+it("should display capital error if don't contain a capital", () => {
+    expect(checkPassword("")).toContain(
+      "Le mot de passe doit contenir au moins une lettre majuscule"
+    );
+    expect(checkPassword("abc")).toContain(
+      "Le mot de passe doit contenir au moins une lettre majuscule"
+    );
+    expect(checkPassword("Abc")).not.toContain(
+      "Le mot de passe doit contenir au moins une lettre majuscule"
+    );
+  });
