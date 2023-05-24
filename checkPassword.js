@@ -6,5 +6,8 @@ export default function checkPassword(password) {
     if (!/[0-9]/.test(password)) {
         Results.push("Le mot de passe doit contenir au moins 1 chiffre");        
     }
+    if (!/[A-Z]/.test(password)) {
+        Results.push("Le mot de passe doit contenir au moins une lettre majuscule");        
+    }
     return Results;
   }
