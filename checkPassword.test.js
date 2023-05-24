@@ -11,7 +11,9 @@ it("should display lenght error if smaller than 8", () => {
   expect(checkPassword("abcde")).toContain(
     "Le mot de passe doit comporter au moins 8 caractères"
   );
-  expect(checkPassword("abcdefgh").length).toBe(0);
+  expect(checkPassword("abcdefgh")).not.toContain(
+    "Le mot de passe doit comporter au moins 8 caractères"
+  );
 });
 
 it("should display number error if don't contain a number", () => {
@@ -21,8 +23,7 @@ it("should display number error if don't contain a number", () => {
   expect(checkPassword("abc")).toContain(
     "Le mot de passe doit contenir au moins 1 chiffre"
   );
-  expect(checkPassword("abcde")).toContain(
+  expect(checkPassword("1")).not.toContain(
     "Le mot de passe doit contenir au moins 1 chiffre"
   );
-  expect(checkPassword("abcdefgh1").length).toBe(0);
 });
