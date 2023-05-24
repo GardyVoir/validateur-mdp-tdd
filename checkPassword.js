@@ -12,5 +12,9 @@ export default function checkPassword(password) {
     if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
         Results.push("Le mot de passe doit contenir au moins un caractère spécial");        
     }
+    if (Results.length === 0) {
+        Results.push("OK");
+    }
+    
     return Results;
   }
