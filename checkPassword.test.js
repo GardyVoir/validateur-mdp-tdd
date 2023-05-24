@@ -51,3 +51,12 @@ it("should display special character error if don't contain a special character"
     "Le mot de passe doit contenir au moins un caractère spécial"
   );
 });
+
+it("should display ok if correct", () => {
+  expect(checkPassword("")).not.toContain("OK");
+  expect(checkPassword("abc")).not.toContain("OK");
+  expect(checkPassword("1")).not.toContain("OK");
+  expect(checkPassword("Abc")).not.toContain("OK");
+  expect(checkPassword("@bc")).not.toContain("OK");
+  expect(checkPassword("@bcdEfghij1")).toContain("OK");
+});
