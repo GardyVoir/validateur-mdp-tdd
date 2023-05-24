@@ -1,0 +1,23 @@
+name: La GitHub action QuiVaBien
+run-name: Ca mouline là, deux secondes
+on:
+    push:
+      branches: main
+jobs:
+    main:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Récup le code de mon repo
+            uses: actions/checkout@v3
+    
+          - name: Install dependances
+            run: npm ci
+    
+          - name: Lancer mes tests
+            run: npm test
+    
+          - name: Dire "C'est gagné!"
+            run: echo "C'est gagné"
+    
+          - name: Build pour la prod
+            run: npm run build
